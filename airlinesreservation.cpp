@@ -1,5 +1,59 @@
+/* IMPORTANT KEY TERMS AND THEIR USE
+
+#include<fstream>
+This is for file handling in C++.
+ifstream = input file stream (reading from a file).
+ofstream = output file stream (writing to a file).
+
+#include<windows.h>
+This is a Windows-specific header.
+lets you use Windows API functions like Sleep(), system("cls"), etc.
+Sleep(milliseconds) → pause program execution.
+system("cls") → clear the terminal screen (Windows only).
+
+#include<sstream>
+This is for string streams.
+stringstream lets you treat a string like a stream (like cin or cout).
+Example: converting an int into a string.
+
+while(getline(in , line)){
+Reads one line from the file at a time and stores it in line.
+Continues until end of file.
+
+int post = line.find(flight);
+Searches for flight (like "F1001") inside that line.
+Returns position index if found, or string::npos if not found.
+
+if(post != string::npos){
+Checks if the substring was found.
+npos = constant meaning “not found”.
+
+stringstream sec;
+Creates a string stream object.
+You can insert numbers into it and later convert them into strings.
+
+sec << current;
+Puts the integer value current into the stringstream.
+
+string strCurr = sec.str();
+Converts the content of stringstream into an actual string.
+Example: if current = 49, strCurr = "49".
+
+int seatPosition = line.find_last_of(':');
+Finds the last occurrence of : in that line (before seat number).
+
+line.replace(seatPosition + 2, string::npos , strCurr);
+Replaces the old seat number (after last :) with the updated one (strCurr).
+seatPosition + 2 → skip the colon and space.
+string::npos → means “till the end of the string”.
+
+*/
+
+
+
+
 #include<iostream>
-#include<fstream> // for file handling operations
+#include<fstream> 
 #include<windows.h>
 #include<windows.h>
 #include<sstream>
